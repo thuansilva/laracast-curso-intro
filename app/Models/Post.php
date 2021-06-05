@@ -43,8 +43,17 @@ class Post extends Model
 
     public static function find($slug)
     {
+        return static::alll()->firstWhere('slug',$slug);
+    }
 
-      $posts = static::alll();
-      return $posts->firstWhere('slug',$slug);
+    public static function findOrFail($slug)
+    {
+
+      $post = static::find($slug);
+      if(!$post ){
+          throw new ModelNotFoundException();
+      }
+
+      return $post;
     }
 }

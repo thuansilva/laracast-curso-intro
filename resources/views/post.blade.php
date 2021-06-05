@@ -1,13 +1,16 @@
-<!DOCTYPE html>
-<link rel="stylesheet" href="./app.css">
-<script src='./app.js'></script>
-<body>
+{{-- @extends('layout')
+
+@section('content') --}}
+
+<x-layout>
     <article>
-        <h1><?= $post->title?></h1>
+        <h1>{{$post->title}}</h1>
         <div>
-            <?= $post->body?>
+            {!!$post->body!!}
         </div>
 
     </article>
     <a href="/">Go Back</a>
-</body>
+{{-- @endsection --}}
+
+</x-layout>
